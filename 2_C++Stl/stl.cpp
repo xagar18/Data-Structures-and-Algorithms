@@ -211,9 +211,78 @@ int main(){
     ms.insert(4); // {1, 1, 4}
     ms.insert(2); // {1, 1, 2, 4}
 
-    cout<<endl;
-    cout<<"   "<<ms.erase(1); 
+    //ms.erase(1); // {2, 4} // erases all the elements with value 1
 
+    int count2 = ms.count(1); // returns 2 as 1 is present twice in the multiset
+
+    ms.erase(ms.find(1)); // {1, 2, 4} // erases the first element with value 1\
+    ms.erase(ms.find(1)); // {2, 4} // erases the second element with value 1
+
+    //ms.erase(ms.find(1), ms.find(1)+2); // {4} // erases the elements between the two addresses 
+
+    //time complexity of multiset is O(logn) for insert, erase, find
+
+
+    // Unordered Set - stores unique elements in unsorted order - insert, erase, find ( random order)
+
+    unordered_set<int> us;
+    us.insert(1); // {1}
+    us.insert(2); // {1, 2}
+    us.insert(3); // {3, 1, 2}
+    us.insert(3); // {3, 1, 2} // 3 is not inserted as it is already present
+    us.insert(6); // {3, 1, 2, 6}
+
+    // The time complexity of unordered set is O(1) for insert, erase, find as it uses hashing (but in worst case it is O(n))
+
+
+
+    // Map - stores key value pairs in sorted order of keys - insert, erase, find ( key is unique) 
+
+    map<int, int> m;
+    m[1] = 2; // {1: 2} 
+    m[2] = 3; // {1: 2, 2: 3}
+    m[3] = 2; // {1: 2, 2: 3, 3: 2}
+
+    //cout<<m[2]<<endl; // 3
+
+    m.insert({4, 5}); // {1: 2, 2: 3, 3: 2, 4: 5}
+
+    //cout<<m.size()<<endl; // 4
+
+    m.erase(2); // {1: 2, 3: 2, 4: 5}
+
+    auto it5 = m.find(3); // returns the address of the element if found else returns the address of the last element
+    //cout<<*it5<<endl; // 2
+
+    map<int, pair<int, int>> mp;
+    mp[1] = {2, 3}; // {1: {2, 3}}
+
+    mp.insert({2, {3, 4}}); // {1: {2, 3}, 2: {3, 4}}
+
+    for(auto it : mp){ // {1: {2, 3}, 2: {3, 4}}
+        //cout<<it.first<<" "<<it.second.first<<" "<<it.second.second<<endl; // 1 2 3 2 3 4
+    }
+
+    cout<<m[2]<<endl; // 0 as 2 is not present in the map
+
+    map<int, int> m1;
+    m1[1] = 2; // {1: 2}
+    m1[2] = 3; // {1: 2, 2: 3}
+    m1[3] = 4; // {1: 2, 2: 3, 3: 4}
+    m1[4] = 3; // {1: 2, 2: 3, 3: 4, 4: 3}
+    
+    auto it6 = m1.find(2);
+    cout<<it6->first<<" "<<it6->second<<endl; // 2 3
+
+    m1.erase(it6); // {1: 2, 3: 4, 4: 3}
+
+    // Extra is reamining
+
+
+
+
+
+    //time complexity of map is O(logn) for insert, erase, find
 
 
 
