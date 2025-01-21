@@ -1,4 +1,4 @@
-
+// Write a recursive function to calculate the nth Fibonacci number. Analyze the time complexity of your implementation and suggest possible optimizations to improve its efficiency.
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,6 +14,6 @@ int fibo(int n)
 
 int main()
 {
-    cout << fibo(4);
+    cout << fibo(5);
     return 0;
 }
