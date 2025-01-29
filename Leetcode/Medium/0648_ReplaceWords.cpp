@@ -23,12 +23,12 @@ string replaceWords(vector<string> &dictionary, string sentence)
                 }
             }
 
-            if (!result.empty())
+            if (result.size() != 0)
             {
                 result += " ";
             }
             result += word;
-            word.clear();
+            word = "";
         }
         else
         {
